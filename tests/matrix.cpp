@@ -211,11 +211,11 @@ TEST_CASE("Matrix SelfMul")
         "6 6 6" };
     matrix_t matrix1 , matrix2 ;
     
-    std::istringstream istream1{ istream1 };
-    std::istringstream istream2{ istream2 };
+    std::istringstream istream1{ input1 };
+    std::istringstream istream2{ input2 };
     
-    matrix1.read( input1 ) ;
-    matrix2.read( input2 ) ;
+    matrix1.read( istream1 ) ;
+    matrix2.read( istream2 ) ;
 
     matrix1 *= matrix2 ;
     
