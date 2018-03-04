@@ -82,7 +82,7 @@ matrix_t matrix_t::operator -( matrix_t const & other ) const
 	matrix_t result;
 	if (this->rows_ == other.rows_ && this->collumns_ == other.collumns_) {
 		result.elements_ = new float *[this->rows_];
-		for ((std::size_t i = 0; i < this->rows_; i++) {
+		for (std::size_t i = 0; i < this->rows_; i++) {
 			result.elements_[i] = new float[this->collumns_];
 		}
 		result.rows_ = this->rows_;
@@ -94,7 +94,7 @@ matrix_t matrix_t::operator -( matrix_t const & other ) const
 		}
 	}
 	else {
-		cout << endl << "fail";
+		std::cout << std::endl << "fail";
 		exit(0);
 	}
 	return result;
@@ -121,7 +121,7 @@ matrix_t matrix_t::operator *( matrix_t const & other ) const
 		}
 	}
 	else {
-		cout << endl << "fail";
+		std::cout << std::endl << "fail";
 		exit(0);
 	}
 	return result;
@@ -137,7 +137,7 @@ matrix_t & matrix_t::operator -=( matrix_t const & other )
 		}
 	}
 	else {
-		cout << endl << "fail";
+		std::cout << std::endl << "fail";
 		exit(0);
 	}
 	return *this;
@@ -154,7 +154,7 @@ matrix_t & matrix_t::operator +=( matrix_t const & other )
 		}
 	}
 	else {
-		cout << endl << "fail";
+		std::cout << std::endl << "fail";
 		exit(0);
 	}
 	return *this;
@@ -182,7 +182,7 @@ matrix_t & matrix_t::operator *=( matrix_t const & other )
 		*this = result;
 	}
 	else {
-		cout << endl << "fail";
+		std::cout << std::endl << "fail";
 		exit(0);
 	}
 	return *this;
