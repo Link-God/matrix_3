@@ -55,7 +55,7 @@ TEST_CASE("Matrix Add")
     matrix1.read( istream1 ) ;
     matrix2.read( istream2 ) ;
     
-    reult= matrix1 + matrix2 ;
+    result= matrix1 + matrix2 ;
         
     std::ostringstream ostream;
     result.write( ostream );
@@ -88,7 +88,7 @@ TEST_CASE("Matrix Sub")
     matrix1.read( istream1 ) ;
     matrix2.read( istream2 ) ;
   
-    reult= matrix2 - matrix1 ;
+    result= matrix2 - matrix1 ;
     
     std::ostringstream ostream;
     result.write( ostream );
