@@ -119,7 +119,7 @@ TEST_CASE("Matrix Mul")
     std::istringstream istream2{ input2 };
     
     matrix1.read( input1 ) ;
-    matrxi2.read( input2 ) ;
+    matrix2.read( input2 ) ;
 
     result = matrix1 * matrix2 ;
     
@@ -151,7 +151,7 @@ TEST_CASE("Matrix SelfAdd")
     std::istringstream istream2{ input2 };
     
     matrix1.read( input1 ) ;
-    matrxi2.read( input2 ) ;
+    matrix2.read( input2 ) ;
 
     matrix1 += matrix2 ;
     
@@ -215,7 +215,7 @@ TEST_CASE("Matrix SelfMul")
     std::istringstream istream2{ input2 };
     
     matrix1.read( input1 ) ;
-    matrxi2.read( input2 ) ;
+    matrix2.read( input2 ) ;
 
     matrix1 *= matrix2 ;
     
