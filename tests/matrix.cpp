@@ -348,23 +348,46 @@ TEST_CASE("All is Not OK")
 }
 TEST_CASE("experiment_1")
 {
-    std::string first_matrix_representation{
+    std::string input1{
         "1, 1\n"
         "1.1\n"
     };
-    std::string second_matrix_representation{
+    std::string input2{
         "2, 1\n"
         "1.0\n"
         "1.0\n"
     };
     
-    std::istringstream stream{ first_matrix_representation };
+    std::istringstream stream{ input1 };
     matrix_t<float> first_matrix;
     first_matrix.read( stream );
     
-    std::istringstream stream_ { second_matrix_representation };
+    std::istringstream stream_ { input2 };
     matrix_t<float> second_matrix;
     second_matrix.read( stream_ );
     
     REQUIRE_THROWS_AS( (first_matrix * second_matrix ), std::invalid_argument);
+}
+
+TEST_CASE("experiment_2")
+{
+    std::string input1{
+        "1, 1\n"
+        "1.1\n"
+    };
+    std::string input2{
+        "2, 1\n"
+        "1.0\n"
+        "1.0\n"
+    };
+    
+    std::istringstream stream{ input1 };
+    matrix_t<float> first_matrix;
+    first_matrix.read( stream );
+    
+    std::istringstream stream_ { input2 };
+    matrix_t<float> second_matrix;
+    second_matrix.read( stream_ );
+    
+    REQUIRE_THROWS_AS( (first_matrix - second_matrix ), std::invalid_argument);
 }
