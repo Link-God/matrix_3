@@ -8,7 +8,7 @@ private:
 	std::size_t collumns_;
 public:
 	matrix_t();
-	matrix_t( matrix_t const & other );
+	matrix_t( matrix_t<T> const & other );
 	matrix_t<T> & operator =( matrix_t<T> const & other );
 	~matrix_t();
 
