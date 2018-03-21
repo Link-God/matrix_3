@@ -315,7 +315,7 @@ TEST_CASE("All is OK")
     matrix2.read( istream2 ) ;
 
     char op = '+';
-    bool good = test (matrix1 , op , matrix2 ) ;
+    bool good = verification (matrix1 , op , matrix2 ) ;
     bool success = true ;
     REQUIRE(good == success);
 }
@@ -341,7 +341,7 @@ TEST_CASE("All is Not OK")
     matrix2.read( istream2 ) ;
     
     char op = '+';
-    bool bad = test (matrix1 , op , matrix2 ) ;
+    bool bad = verification (matrix1 , op , matrix2 ) ;
     bool success = false ;
     REQUIRE(bad == success);
 }
