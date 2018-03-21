@@ -26,5 +26,5 @@ public:
 	std::istream & read( std::istream & stream );
 	std::ostream & write( std::ostream  & stream ) const;
 	
-	bool test (matrix_t<T> const & mat1 , const char * op  , matrix_<T> const & mat2);
+	bool test (matrix_t<T> const & mat1 , const char * op  , matrix_t<T> const & mat2);
 };
