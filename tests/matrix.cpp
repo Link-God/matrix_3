@@ -347,7 +347,7 @@ TEST_CASE("All is Not OK")
     REQUIRE(bad == success);
 }
 
-TEST_CASE("New All is OK")
+/*TEST_CASE("New All is OK")
 {
     std::string input1{
         "3, 3\n"
@@ -372,4 +372,4 @@ TEST_CASE("New All is OK")
     bool good = verification (matrix1 , op , matrix2 ) ;
     bool success = true ;
     REQUIRE(good == success);
-}
+}*/
