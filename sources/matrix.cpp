@@ -167,7 +167,7 @@ matrix_t<T> & matrix_t<T>::operator +=( matrix_t<T> const & other )
 }
 
 template < typename T > 
-matrix_t<T> & matrix_t<T>::matrix_t<T> *=( matrix_t<T> const & other )
+matrix_t<T> & matrix_t<T>::operator *=( matrix_t<T> const & other )
 {
 	if (this->collumns_ == other.rows_) {
 		matrix_t result;
@@ -261,7 +261,7 @@ bool test (matrix_t<T> const & mat1 , const char * op  , matrix_<T> const & mat2
 				break;
 			}
 	}
-	return success
+	return success;
 }
 
 template < typename T > 
