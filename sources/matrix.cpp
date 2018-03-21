@@ -195,7 +195,7 @@ matrix_t<T> & matrix_t<T>::operator *=( matrix_t<T> const & other )
 }
 
 template < typename T > 
-bool test (matrix_t<T> const & mat1 , const char  op  , matrix_t<T> const & mat2)
+bool verification (matrix_t<T> const & mat1 , const char  op  , matrix_t<T> const & mat2)
 {
 	matrix_t<T> result ;
 	bool success = true ;
