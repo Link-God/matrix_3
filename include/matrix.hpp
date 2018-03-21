@@ -76,7 +76,7 @@ public:
 			}
 		}
 		else {
-			throw 3;
+			throw std::invalid_argument("Invalid syntax");
 		}
 		return result;
 	}
@@ -97,7 +97,7 @@ public:
 			}
 		}
 		else {
-			throw 3;
+			throw std::invalid_argument("Invalid syntax");
 		}
 		return result;
 	}
@@ -122,7 +122,7 @@ public:
 			}
 		}
 		else {
-			throw 3;
+			throw std::invalid_argument("Invalid syntax");
 		}
 		return result;
 	}
@@ -137,7 +137,7 @@ public:
 			}
 		}
 		else {
-			throw 3;
+			throw std::invalid_argument("Invalid syntax");
 		}
 		return *this;
 	}
@@ -151,7 +151,7 @@ public:
 			}
 		}
 		else {
-			throw 3;
+			throw std::invalid_argument("Invalid syntax");
 		}
 		return *this;
 	}
@@ -177,7 +177,7 @@ public:
 			*this = result;
 		}
 		else {
-			throw 3;
+			throw std::invalid_argument("Invalid syntax");
 		}
 		return *this;
 	}
@@ -256,7 +256,7 @@ bool verification (matrix_t<T> const & mat1 ,char &op, matrix_t<T> const & mat2)
 					result= mat1 + mat2 ;
 					
 				}
-				catch(int){
+				catch(std::invalid_argument){
 					success = false;
 				}
 				break;
@@ -266,7 +266,7 @@ bool verification (matrix_t<T> const & mat1 ,char &op, matrix_t<T> const & mat2)
 					result= mat1 - mat2 ;
 					
 				}
-				catch(int){
+				catch(std::invalid_argument){
 					success = false;
 				}
 				break;
@@ -276,7 +276,7 @@ bool verification (matrix_t<T> const & mat1 ,char &op, matrix_t<T> const & mat2)
 					result= mat1 * mat2 ;
 					
 				}
-				catch(int){
+				catch(std::invalid_argument){
 					success = false;
 				}
 				break;
