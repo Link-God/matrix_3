@@ -195,12 +195,12 @@ matrix_t<T> & matrix_t<T>::operator *=( matrix_t<T> const & other )
 }
 
 template < typename T > 
-bool test (matrix_t<T> const & mat1 , const char * op  , matrix_<T> const & mat2)
+bool test (matrix_t<T> const & mat1 , const char  op  , matrix_t<T> const & mat2)
 {
 	matrix_t<T> result ;
 	bool success = true ;
 	switch(op){
-			case"+":{
+			case'+':{
 				try{
 					result= mat1 + mat2 ;
 					
@@ -210,7 +210,7 @@ bool test (matrix_t<T> const & mat1 , const char * op  , matrix_<T> const & mat2
 				}
 				break;
 			}
-			case"-":{
+			case'-':{
 				try{
 					result= mat1 - mat2 ;
 					
@@ -220,39 +220,9 @@ bool test (matrix_t<T> const & mat1 , const char * op  , matrix_<T> const & mat2
 				}
 				break;
 			}
-			case"*":{
+			case'*':{
 				try{
 					result= mat1 * mat2 ;
-					
-				}
-				catch(int){
-					success = false;
-				}
-				break;
-			}
-			case"+=":{
-				try{
-					mat1 += mat2 ;
-					
-				}
-				catch(int){
-					success = false;
-				}
-				break;
-			}
-			case"-=":{
-				try{
-					mat1 -= mat2 ;
-					
-				}
-				catch(int){
-					success = false;
-				}
-				break;
-			}
-			case"*=":{
-				try{
-					mat1 *= mat2 ;
 					
 				}
 				catch(int){
