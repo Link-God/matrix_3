@@ -25,16 +25,16 @@ public:
 	}
 	matrix_t<T> & operator =( matrix_t<T> const & other )
 	{
-		for (unsigned int i = 0; i <this->rows_; i++) {
+		for (std::size_t i = 0; i <this->rows_; i++) {
 			delete[] this->elements_[i];
 		}
 		delete[] this->elements_;
 		this->rows_ = other.rows_;
 		this->collumns_ = other.collumns_;
 		this->elements_ = new T * [rows_];
-		for (unsigned int i = 0; i < this->rows_; i++) {
+		for (std::size_t i = 0; i < this->rows_; i++) {
 			this->elements_[i] = new T[this->collumns_];
-			for (unsigned int j = 0; j < this->collumns_; j++) {
+			for (std::size_t j = 0; j < this->collumns_; j++) {
 				this->elements_[i][j] = other.elements_[i][j];
 			}
 		}
@@ -42,7 +42,7 @@ public:
 	}
 	~matrix_t()
 	{
-		for (unsigned int i = 0; i < this->rows_; i++) {
+		for (std::size_t i = 0; i < this->rows_; i++) {
 			delete[] this->elements_[i];
 		}
 		delete[] this->elements_;	
@@ -160,9 +160,9 @@ public:
 			matrix_t<T> result;
 			result.rows_ = this->rows_;
 			result.collumns_ = other.collumns_;
-			result.elements_ = new float *[this->rows_];
+			result.elements_ = new T *[this->rows_];
 			for (std::size_t i = 0; i < this->rows_; ++i) {
-				result.elements_[i] = new float[other.collumns_];
+				result.elements_[i] = new T[other.collumns_];
 			}
 			for (std::size_t i = 0; i < this->rows_; i++) {
 				for (std::size_t j = 0; j < other.collumns_; j++) {
