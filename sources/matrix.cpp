@@ -78,8 +78,7 @@ matrix_t<T> matrix_t<T>::operator +( matrix_t<T> const & other ) const
 		}
 	}
 	else {
-		std::cout << std::endl << "fail";
-		exit(0);
+		throw 3;
 	}
 	return result;
 }
@@ -102,8 +101,7 @@ matrix_t<T> matrix_t<T>::operator -( matrix_t<T> const & other ) const
 		}
 	}
 	else {
-		std::cout << std::endl << "fail";
-		exit(0);
+		throw 3;
 	}
 	return result;
 }
@@ -130,8 +128,7 @@ matrix_t<T> matrix_t<T>::operator *( matrix_t<T> const & other ) const
 		}
 	}
 	else {
-		std::cout << std::endl << "fail";
-		exit(0);
+		throw 3;
 	}
 	return result;
 }
@@ -147,8 +144,7 @@ matrix_t<T> & matrix_t<T>::operator -=( matrix_t<T> const & other )
 		}
 	}
 	else {
-		std::cout << std::endl << "fail";
-		exit(0);
+		throw 3;
 	}
 	return *this;
 }
@@ -165,8 +161,7 @@ matrix_t<T> & matrix_t<T>::operator +=( matrix_t<T> const & other )
 		}
 	}
 	else {
-		std::cout << std::endl << "fail";
-		exit(0);
+		throw 3;
 	}
 	return *this;
 }
@@ -194,10 +189,73 @@ matrix_t<T> & matrix_t<T>::matrix_t<T> *=( matrix_t<T> const & other )
 		*this = result;
 	}
 	else {
-		std::cout << std::endl << "fail";
-		exit(0);
+		throw 3;
 	}
 	return *this;
+}
+
+template < typename T > 
+bool test (matrix_t<T> const & mat1 , char op const  , matrix_<T> const & mat2)
+{
+	matrix_t<T> result ;
+	bool success = true ;
+	switch(op){
+			case'+':{
+				try{
+					result= mat1 + mat2 ;
+					
+				}
+				catch(int){
+					success = false;
+				}
+			}
+			case'-':{
+				try{
+					result= mat1 - mat2 ;
+					
+				}
+				catch(int){
+					success = false;
+				}
+			}
+			case'*':{
+				try{
+					result= mat1 * mat2 ;
+					
+				}
+				catch(int){
+					success = false;
+				}
+			}
+			case'+=':{
+				try{
+					mat1 += mat2 ;
+					
+				}
+				catch(int){
+					success = false;
+				}
+			}
+			case'-+':{
+				try{
+					mat1 -= mat2 ;
+					
+				}
+				catch(int){
+					success = false;
+				}
+			}
+			case'*=':{
+				try{
+					mat1 *= mat2 ;
+					
+				}
+				catch(int){
+					success = false;
+				}
+			}
+	}
+	return success
 }
 
 template < typename T > 
