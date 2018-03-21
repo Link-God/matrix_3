@@ -345,3 +345,30 @@ TEST_CASE("All is Not OK")
     bool success = false ;
     REQUIRE(bad == success);
 }
+
+TEST_CASE("New All is OK")
+{
+    std::string input1{
+        "3, 3\n"
+        "1 1 1\n"
+        "1 1 1\n"
+        "1 1 1" };
+     std::string input2{
+        "3, 3\n"
+        "2 2 2\n"
+        "2 2 2\n"
+        "2 2 2" };
+    matrix_t<int> matrix1 ;
+    matrix_t<int> matrix2 ;
+    
+    std::istringstream istream1{ input1 };
+    std::istringstream istream2{ input2 };
+    
+    matrix1.read( istream1 ) ;
+    matrix2.read( istream2 ) ;
+
+    char * op = '*=';
+    bool good = verification (matrix1 , op , matrix2 ) ;
+    bool success = true ;
+    REQUIRE(good == success);
+}
