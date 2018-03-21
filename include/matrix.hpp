@@ -283,3 +283,40 @@ bool verification (matrix_t<T> const & mat1 ,char &op, matrix_t<T> const & mat2)
 	}
 	return success;
 }
+
+template <typename T>
+bool verification (matrix_t<T> const & mat1 ,char* op, matrix_t<T> const & mat2)
+{
+	bool success = true ;
+	if(op == "+="){
+
+				try{
+					mat1 += mat2 ;
+					
+				}
+				catch(int){
+					success = false;
+				}
+	}
+	else if(op == "-="){
+			
+				try{
+					mat -= mat2 ;
+					
+				}
+				catch(int){
+					success = false;
+				}
+	}
+	else if (op == "*="){
+				try{
+					mat1 *= mat2 ;
+					
+				}
+				catch(int){
+					success = false;
+				}
+	}
+	
+	return success;
+}
