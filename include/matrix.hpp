@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 template <typename T>
 class matrix_t {
@@ -288,7 +289,7 @@ template <typename T>
 bool verification (matrix_t<T> const & mat1 ,char* op, matrix_t<T> const & mat2)
 {
 	bool success = true ;
-	if(op == "+="){
+	if(strcmp(op, "+=")==0){
 
 				try{
 					mat1 += mat2 ;
@@ -298,7 +299,7 @@ bool verification (matrix_t<T> const & mat1 ,char* op, matrix_t<T> const & mat2)
 					success = false;
 				}
 	}
-	else if(op == "-="){
+	else if(strcmp(op, "-=")==0){
 			
 				try{
 					mat -= mat2 ;
@@ -308,7 +309,7 @@ bool verification (matrix_t<T> const & mat1 ,char* op, matrix_t<T> const & mat2)
 					success = false;
 				}
 	}
-	else if (op == "*="){
+	else if (strcmp(op, "*=")==0){
 				try{
 					mat1 *= mat2 ;
 					
