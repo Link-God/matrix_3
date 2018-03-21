@@ -1,5 +1,5 @@
 #include <iostream>
-#include <string>
+#include <сstring>
 
 template <typename T>
 class matrix_t {
@@ -302,7 +302,7 @@ bool verification (matrix_t<T> const & mat1 ,char* op, matrix_t<T> const & mat2)
 	else if(strcmp(op, "-=")==0){
 			
 				try{
-					mat -= mat2 ;
+					mat1 -= mat2 ;
 					
 				}
 				catch(int){
