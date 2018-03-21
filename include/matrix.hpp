@@ -285,7 +285,7 @@ bool verification (matrix_t<T> const & mat1 ,char &op, matrix_t<T> const & mat2)
 	return success;
 }
 
-template <typename T>
+/*template <typename T>
 bool verification (matrix_t<T> const & mat1 ,const char * op, matrix_t<T> const & mat2)
 {
 	bool success = true ;
@@ -321,3 +321,4 @@ bool verification (matrix_t<T> const & mat1 ,const char * op, matrix_t<T> const 
 	
 	return success;
 }
+*/
