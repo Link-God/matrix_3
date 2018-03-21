@@ -368,7 +368,7 @@ TEST_CASE("New All is OK")
     matrix1.read( istream1 ) ;
     matrix2.read( istream2 ) ;
 
-    char * op = "*=";
+    const char * = "*=";
     bool good = verification (matrix1 , op , matrix2 ) ;
     bool success = true ;
     REQUIRE(good == success);
