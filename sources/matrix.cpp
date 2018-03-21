@@ -195,12 +195,12 @@ matrix_t<T> & matrix_t<T>::matrix_t<T> *=( matrix_t<T> const & other )
 }
 
 template < typename T > 
-bool test (matrix_t<T> const & mat1 , char op const  , matrix_<T> const & mat2)
+bool test (matrix_t<T> const & mat1 , *char op const  , matrix_<T> const & mat2)
 {
 	matrix_t<T> result ;
 	bool success = true ;
 	switch(op){
-			case'+':{
+			case"+":{
 				try{
 					result= mat1 + mat2 ;
 					
@@ -208,8 +208,9 @@ bool test (matrix_t<T> const & mat1 , char op const  , matrix_<T> const & mat2)
 				catch(int){
 					success = false;
 				}
+				break;
 			}
-			case'-':{
+			case"-":{
 				try{
 					result= mat1 - mat2 ;
 					
@@ -217,8 +218,9 @@ bool test (matrix_t<T> const & mat1 , char op const  , matrix_<T> const & mat2)
 				catch(int){
 					success = false;
 				}
+				break;
 			}
-			case'*':{
+			case"*":{
 				try{
 					result= mat1 * mat2 ;
 					
@@ -226,8 +228,9 @@ bool test (matrix_t<T> const & mat1 , char op const  , matrix_<T> const & mat2)
 				catch(int){
 					success = false;
 				}
+				break;
 			}
-			case'+=':{
+			case"+=":{
 				try{
 					mat1 += mat2 ;
 					
@@ -235,8 +238,9 @@ bool test (matrix_t<T> const & mat1 , char op const  , matrix_<T> const & mat2)
 				catch(int){
 					success = false;
 				}
+				break;
 			}
-			case'-+':{
+			case"-=":{
 				try{
 					mat1 -= mat2 ;
 					
@@ -244,8 +248,9 @@ bool test (matrix_t<T> const & mat1 , char op const  , matrix_<T> const & mat2)
 				catch(int){
 					success = false;
 				}
+				break;
 			}
-			case'*=':{
+			case"*=":{
 				try{
 					mat1 *= mat2 ;
 					
@@ -253,6 +258,7 @@ bool test (matrix_t<T> const & mat1 , char op const  , matrix_<T> const & mat2)
 				catch(int){
 					success = false;
 				}
+				break;
 			}
 	}
 	return success
