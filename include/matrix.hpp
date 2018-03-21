@@ -154,7 +154,7 @@ public:
 		}
 		return *this;
 	}
-	matrix_t<T> & operator *=( matrix_t<T> const & other );
+	matrix_t<T> & operator *=( matrix_t<T> const & other )
 	{
 		if (this->collumns_ == other.rows_) {
 			matrix_t result;
