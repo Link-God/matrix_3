@@ -15,9 +15,9 @@ public:
 	matrix_t( matrix_t<T> const & other ){
 		this->rows_ = other.rows_;
 		this->collumns_ = other.collumns_;
-		this->elements_ = new float *[this->rows_];
+		this->elements_ = new T *[this->rows_];
 		for (std::size_t i = 0; i < this->rows_; i++) {
-			elements_[i] = new float[this->collumns_];
+			elements_[i] = new T [this->collumns_];
 			for (std::size_t j = 0; j < this->collumns_; j++) {
 				this->elements_[i][j] = other.elements_[i][j];
 			}
@@ -31,9 +31,9 @@ public:
 		delete[] this->elements_;
 		this->rows_ = other.rows_;
 		this->collumns_ = other.collumns_;
-		this->elements_ = new float * [rows_];
+		this->elements_ = new T * [rows_];
 		for (unsigned int i = 0; i < this->rows_; i++) {
-			this->elements_[i] = new float[this->collumns_];
+			this->elements_[i] = new T[this->collumns_];
 			for (unsigned int j = 0; j < this->collumns_; j++) {
 				this->elements_[i][j] = other.elements_[i][j];
 			}
@@ -61,9 +61,9 @@ public:
 	{
 		matrix_t<T> result;
 		if (this->rows_ == other.rows_ && this->collumns_ == other.collumns_) {
-	  		result.elements_ = new float *[this->rows_];
+	  		result.elements_ = new T *[this->rows_];
 			for (std::size_t i = 0; i<this->rows_; i++) {
-				result.elements_[i] = new float [this->collumns_];
+				result.elements_[i] = new T [this->collumns_];
 			}		
 			result.rows_ = this->rows_;
 			result.collumns_ = this->collumns_;
@@ -83,9 +83,9 @@ public:
 	{
 		matrix_t<T> result;
 		if (this->rows_ == other.rows_ && this->collumns_ == other.collumns_) {
-			result.elements_ = new float *[this->rows_];
+			result.elements_ = new T *[this->rows_];
 			for (std::size_t i = 0; i < this->rows_; i++) {
-				result.elements_[i] = new float[this->collumns_];
+				result.elements_[i] = new T[this->collumns_];
 			}
 			result.rows_ = this->rows_;
 			result.collumns_ = this->collumns_;
@@ -106,13 +106,13 @@ public:
 		if (this->collumns_ == other.rows_) {
 			result.rows_ = this->rows_;
 			result.collumns_ = other.collumns_;
-			result.elements_ = new float *[this->rows_];
+			result.elements_ = new T *[this->rows_];
 			for (std::size_t i = 0; i < this->rows_; ++i) {
-				result.elements_[i] = new float[other.collumns_];
+				result.elements_[i] = new T[other.collumns_];
 			}
 			for (std::size_t i = 0; i < this->rows_; i++) {
 				for (std::size_t j = 0; j < other.collumns_; j++) {
-					int res = 0;
+					T res = 0;
 					for (std::size_t k = 0; k < this->collumns_; k++) {
 						res += this->elements_[i][k] * other.elements_[k][j];
 					}
@@ -157,7 +157,7 @@ public:
 	matrix_t<T> & operator *=( matrix_t<T> const & other )
 	{
 		if (this->collumns_ == other.rows_) {
-			matrix_t result;
+			matrix_t<T> result;
 			result.rows_ = this->rows_;
 			result.collumns_ = other.collumns_;
 			result.elements_ = new float *[this->rows_];
@@ -166,7 +166,7 @@ public:
 			}
 			for (std::size_t i = 0; i < this->rows_; i++) {
 				for (std::size_t j = 0; j < other.collumns_; j++) {
-					int res = 0;
+					T res = 0;
 					for (std::size_t k = 0; k < this->collumns_; k++) {
 						res += this->elements_[i][k] * other.elements_[k][j];
 					}
@@ -188,9 +188,9 @@ public:
 
 	    bool success = true;
 	    if( stream >> rows && stream >> symbol && symbol == ',' && stream >> collumns ) {
-		float ** elements = new float *[ rows ];
+		T ** elements = new T *[ rows ];
 		for( std::size_t i = 0; success && i < rows; ++i ) {
-		    elements[ i ] = new float[ collumns ];
+		    elements[ i ] = new T[ collumns ];
 		    for( std::size_t j = 0; j < collumns; ++j ) {
 			if( !( stream >> elements[ i ][ j ] ) ) {
 			    success = false;
