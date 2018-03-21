@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Link-God/matrix3.svg?branch=master)](https://travis-ci.org/Link-God/matrix3)
+[![Build Status](https://travis-ci.org/Link-God/matrix_3.svg?branch=master)](https://travis-ci.org/Link-God/matrix_3)
 
 ```
 cmake -H. -B_builds -DBUILD_TESTS=ON -DBUILD_EXAMPLES=ON
