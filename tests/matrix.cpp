@@ -293,105 +293,119 @@ TEST_CASE("Matrix SelfMul")
     
     REQUIRE( output == ostream.str() );
 }
-
-TEST_CASE("All is OK")
-{
-    std::string input1{
-        "3, 3\n"
-        "1 1 1\n"
-        "1 1 1\n"
-        "1 1 1" };
-     std::string input2{
-        "3, 3\n"
-        "2 2 2\n"
-        "2 2 2\n"
-        "2 2 2" };
-    matrix_t<int> matrix1 ;
-    matrix_t<int> matrix2 ;
-    
-    std::istringstream istream1{ input1 };
-    std::istringstream istream2{ input2 };
-    
-    matrix1.read( istream1 ) ;
-    matrix2.read( istream2 ) ;
-
-    char op = '+';
-    bool good = verification (matrix1 , op , matrix2 ) ;
-    bool success = true ;
-    REQUIRE(good == success);
-}
-
-TEST_CASE("All is Not OK")
-{
-    std::string input1{
-        "3, 3\n"
-        "1 1 1\n"
-        "1 1 1\n"
-        "1 1 1" };
-     std::string input2{
-        "2, 2\n"
-        "2 2\n"
-        "2 2" };
-    matrix_t<int> matrix1 ;
-    matrix_t<int> matrix2 ;
-    
-    std::istringstream istream1{ input1 };
-    std::istringstream istream2{ input2 };
-    
-    matrix1.read( istream1 ) ;
-    matrix2.read( istream2 ) ;
-    
-    char op = '+';
-    bool bad = verification (matrix1 , op , matrix2 ) ;
-    bool success = false ;
-    REQUIRE(bad == success);
-}
-TEST_CASE("experiment_1")
+TEST_CASE("Throw_Add")
 {
     std::string input1{
         "1, 1\n"
-        "1.1\n"
+        "3.4\n"
     };
     std::string input2{
         "2, 1\n"
-        "1.0\n"
-        "1.0\n"
+        "1.5\n"
+        "1.6\n"
     };
     
     std::istringstream stream{ input1 };
-    matrix_t<float> first_matrix;
+    matrix_t<float> matrix1;
     first_matrix.read( stream );
     
     std::istringstream stream_ { input2 };
-    matrix_t<float> second_matrix;
+    matrix_t<float> matrix2;
     second_matrix.read( stream_ );
     
-    REQUIRE_THROWS_AS( (first_matrix * second_matrix ), std::invalid_argument);
+    REQUIRE_THROWS_AS( (matrix1 + matrix2 ), std::invalid_argument);
 }
-
-TEST_CASE("experiment_2")
+TEST_CASE("Throw_Sub")
 {
     std::string input1{
         "1, 1\n"
-        "1.1\n"
+        "3.4\n"
     };
     std::string input2{
         "2, 1\n"
-        "1.0\n"
-        "1.0\n"
+        "1.5\n"
+        "1.6\n"
     };
     
     std::istringstream stream{ input1 };
-    matrix_t<float> first_matrix;
+    matrix_t<float> matrix1;
     first_matrix.read( stream );
     
     std::istringstream stream_ { input2 };
-    matrix_t<float> second_matrix;
+    matrix_t<float> matrix2;
     second_matrix.read( stream_ );
     
-    REQUIRE_THROWS_AS( (first_matrix - second_matrix ), std::invalid_argument);
+    REQUIRE_THROWS_AS( (matrix1 - matrix2 ), std::invalid_argument);
 }
- TEST_CASE("My try")
+TEST_CASE("Throw_Mul")
+{
+    std::string input1{
+        "1, 1\n"
+        "3.4\n"
+    };
+    std::string input2{
+        "2, 1\n"
+        "1.5\n"
+        "1.6\n"
+    };
+    
+    std::istringstream stream{ input1 };
+    matrix_t<float> matrix1;
+    first_matrix.read( stream );
+    
+    std::istringstream stream_ { input2 };
+    matrix_t<float> matrix2;
+    second_matrix.read( stream_ );
+    
+    REQUIRE_THROWS_AS( (matrix1 * matrix2 ), std::invalid_argument);
+}
+
+TEST_CASE("Throw_SelfAdd")
+{
+    std::string input1{
+        "1, 1\n"
+        "3.4\n"
+    };
+    std::string input2{
+        "2, 1\n"
+        "1.5\n"
+        "1.6\n"
+    };
+    
+    std::istringstream stream{ input1 };
+    matrix_t<float> matrix1;
+    first_matrix.read( stream );
+    
+    std::istringstream stream_ { input2 };
+    matrix_t<float> matrix2;
+    second_matrix.read( stream_ );
+    
+    REQUIRE_THROWS_AS( (matrix1 += matrix2 ), std::invalid_argument);
+}
+
+TEST_CASE("Throw_SelfSub")
+{
+    std::string input1{
+        "1, 1\n"
+        "3.4\n"
+    };
+    std::string input2{
+        "2, 1\n"
+        "1.5\n"
+        "1.6\n"
+    };
+    
+    std::istringstream stream{ input1 };
+    matrix_t<float> matrix1;
+    matrix1.read( stream );
+    
+    std::istringstream stream_ { input2 };
+    matrix_t<float> matrix2;
+    matrix2.read( stream_ );
+    
+    REQUIRE_THROWS_AS( (matrix1 -= matrix2 ), std::invalid_argument);
+}
+ TEST_CASE("Throw_SelfMul")
  {
      std::string input1{
         "3, 3\n"
@@ -411,5 +425,4 @@ TEST_CASE("experiment_2")
     matrix1.read( istream1 ) ;
     matrix2.read( istream2 ) ;
     REQUIRE_THROWS_AS( (matrix1 += matrix2 ), std::invalid_argument);
-     
  }
